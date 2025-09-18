@@ -137,8 +137,6 @@ class Calcular extends JFrame implements ActionListener{
                 leitor = "ERROR";
             }
             
-            System.out.print(leitor.length());
-            
             if(leitor.substring(leitor.length()-1,leitor.length()).equals("0")){
                 leitor = leitor.substring(0,leitor.length()-2);
             }
@@ -190,3 +188,4 @@ class Calcular extends JFrame implements ActionListener{
         return resul;
     }
 }
+
