@@ -59,7 +59,6 @@ class Calcular extends JFrame implements ActionListener{
         }
         
         label = new JLabel();
-        label.setBounds(500, 500, 200, 40);
         label.setFont(new Font("Comic Sans MS", Font.PLAIN, 40));
         label.setHorizontalAlignment(JLabel.CENTER);      
         
@@ -67,6 +66,7 @@ class Calcular extends JFrame implements ActionListener{
         panel2.add(label);
         this.add(panel2);
         this.add(panel1);
+        this.setLocation(800, 250);
         this.setVisible(true);
     }
 
@@ -136,6 +136,12 @@ class Calcular extends JFrame implements ActionListener{
             }catch(Exception a){
                 leitor = "ERROR";
             }
+            
+            System.out.print(leitor.length());
+            
+            if(leitor.substring(leitor.length()-1,leitor.length()).equals("0")){
+                leitor = leitor.substring(0,leitor.length()-2);
+            }
             label.setText(leitor);
         }
         if(e.getSource() == botao[15]){
@@ -144,17 +150,15 @@ class Calcular extends JFrame implements ActionListener{
         }
     }
     public double conta(String conta){
-    String num1 = "", num2 = "", operador = "";
-        double resul = 1;
         
+        String num1 = "", num2 = "", operador = "";
+        double resul = 1;
         int trava = 0;
         
         while(conta.length() > 1){
             if(trava == 0){
                 num1 = conta.substring(0,conta.indexOf(" "));
-                System.out.print(num1);
                 conta = conta.substring(conta.indexOf(" ")+1,conta.length());
-                System.out.print("\n"+conta);
             }
             
             operador = conta.substring(0,1);
@@ -162,10 +166,7 @@ class Calcular extends JFrame implements ActionListener{
             
             try {
                 num2 = conta.substring(0, conta.indexOf(" "));
-                System.out.print("\n" + num2);
-
                 conta = conta.substring(conta.indexOf(" ") + 1, conta.length());
-                System.out.print("\n" + conta);
 
             } catch (Exception e) {
                 num2 = conta;
@@ -186,7 +187,6 @@ class Calcular extends JFrame implements ActionListener{
                 resul = resul / Double.parseDouble(num2);
             }
         }
-        
         return resul;
     }
 }
