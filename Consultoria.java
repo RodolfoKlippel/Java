@@ -90,9 +90,9 @@ public class Consultoria extends JFrame implements ActionListener{
     
     public void banco(){
         
-        String url = "jdbc:mysql://localhost:3306/rodolfo";
+        String url = "jdbc:mysql://localhost:3306/";
         String usuario = "root";
-        String senha = "Araujo20052005";
+        String senha = "";
         
         try{
             
@@ -112,3 +112,4 @@ public class Consultoria extends JFrame implements ActionListener{
         }
     }
 }
+
