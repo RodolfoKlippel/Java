@@ -103,6 +103,17 @@ public class Consultoria extends JFrame implements ActionListener{
             sqll.executeUpdate("INSERT INTO tabela VALUES("+Integer.parseInt(caixaTexto[0].getText())+",'"+caixaTexto[1].getText()+"',"+Double.parseDouble(caixaTexto[2].getText())+",now())");
             
             JOptionPane.showMessageDialog(null, "Dados Coletados.");
+
+            System.out.print("Codigo   Nome   Salario   Data\n");
+            
+            while(rset.next()){
+                int Codigo = rset.getInt("Codigo");
+                String Nome = rset.getString("Nome");
+                double salario = rset.getDouble("salario");
+                String data = rset.getString("data_empregado");
+                
+                System.out.print(Codigo+"   "+Nome+"   "+salario+"   "+data+"\n");
+            }
             
             sqll.close();
             conexao.close();
@@ -112,4 +123,5 @@ public class Consultoria extends JFrame implements ActionListener{
         }
     }
 }
+
 
