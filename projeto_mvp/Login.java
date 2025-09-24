@@ -107,7 +107,7 @@ public class Login extends JFrame implements ActionListener{
        public boolean validarLogin(String user, String pass) {
         String url = "jdbc:mysql://localhost:3306/senhas";
         String usuario = "root";
-        String senha = "Araujo20052005";
+        String senha = "";
 
         try (Connection conexao = DriverManager.getConnection(url, usuario, senha)) {
             String sql = "SELECT * FROM senha WHERE login = ? AND senha = ?";
@@ -149,3 +149,4 @@ public class Login extends JFrame implements ActionListener{
 //        }
 //    }
 }
+
